@@ -3,13 +3,201 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oluwashola Akanni</title>
+  <meta name="description" content="Oluwashola Akanni — software engineer and builder. I design automation and developer tooling that makes shipping software effortless." />
+  <meta name="author" content="Oluwashola Akanni" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="Oluwashola Akanni" />
+  <meta property="og:description" content="Software engineer and builder. I design automation and developer tooling." />
+  <meta property="og:type" content="website" />
+
+  <title>Oluwashola Akanni — Software Engineer & Builder</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main>
-    <h1>Oluwashola Akanni</h1>
-    <p>Welcome to my personal website. More coming soon.</p>
-  </main>
+  <!-- Progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand">OA<span class="nav__dot">.</span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#work">What I Do</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal">Hello, I'm</p>
+      <h1 class="hero__title reveal">Oluwashola Akanni</h1>
+      <p class="hero__subtitle reveal">
+        Software engineer &amp; builder. I craft
+        <span class="hero__rotator" id="rotator">automation</span>
+        that makes shipping software effortless.
+      </p>
+      <div class="hero__cta reveal">
+        <a href="#projects" class="btn btn--primary">View my work</a>
+        <a href="#contact" class="btn btn--ghost">Get in touch</a>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Scroll to content">
+      <span class="hero__scroll-mouse"></span>
+    </a>
+  </section>
+
+  <!-- About -->
+  <section class="section about" id="about">
+    <div class="section__inner">
+      <div class="about__text reveal">
+        <span class="section__label">01 — About</span>
+        <h2 class="section__title">I build tools that other builders love to use.</h2>
+        <p>
+          I'm a software engineer at Amazon, where I spend my days turning messy,
+          manual engineering workflows into clean, automated systems. My work lives
+          at the intersection of developer tooling, data pipelines, and the small
+          quality-of-life improvements that quietly save teams hours every week.
+        </p>
+        <p>
+          I care about clarity — in code, in design, and in the way software feels
+          to use. When something is complicated, I look for the version of it that
+          isn't.
+        </p>
+        <div class="about__stats">
+          <div class="stat">
+            <span class="stat__num" data-count="3">0</span>
+            <span class="stat__label">Active projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-count="100">0</span><span class="stat__suffix">+</span>
+            <span class="stat__label">Workflows automated</span>
+          </div>
+          <div class="stat">
+            <span class="stat__num" data-count="24">0</span><span class="stat__suffix">/7</span>
+            <span class="stat__label">Pipelines watched</span>
+          </div>
+        </div>
+      </div>
+      <div class="about__visual reveal">
+        <div class="about__image-wrap">
+          <img src="assets/images/abstract.jpg" alt="Abstract illustration representing data and systems" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What I Do -->
+  <section class="section work" id="work">
+    <div class="section__inner section__inner--stack">
+      <div class="section__head reveal">
+        <span class="section__label">02 — What I Do</span>
+        <h2 class="section__title">Turning friction into flow.</h2>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">⚙️</div>
+          <h3>Automation &amp; Tooling</h3>
+          <p>Scripts, CLIs, and services that eliminate repetitive engineering toil and give teams their time back.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">📊</div>
+          <h3>Data &amp; Reporting</h3>
+          <p>Pipelines and dashboards that turn scattered signals into clear, actionable reports leaders actually read.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon" aria-hidden="true">🔧</div>
+          <h3>Developer Experience</h3>
+          <p>Removing the papercuts in build, deploy, and release so shipping software feels effortless.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section projects" id="projects">
+    <div class="section__inner section__inner--stack">
+      <div class="section__head reveal">
+        <span class="section__label">03 — Projects</span>
+        <h2 class="section__title">Things I've been building.</h2>
+      </div>
+      <div class="projects__grid">
+        <article class="project reveal">
+          <div class="project__media">
+            <img src="assets/images/work.jpg" alt="" loading="lazy" />
+            <span class="project__tag">Automation</span>
+          </div>
+          <div class="project__body">
+            <h3>Pipeline Parity</h3>
+            <p>A monthly reporting system that tracks pipeline compliance across teams and surfaces the gaps that matter — automatically.</p>
+            <ul class="project__stack">
+              <li>Python</li><li>Data pipelines</li><li>Reporting</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project__media project__media--alt">
+            <span class="project__tag">Tooling</span>
+          </div>
+          <div class="project__body">
+            <h3>Pipeline Order</h3>
+            <p>Tooling around severity handling and proactive outreach — making sure the right issues get attention before they escalate.</p>
+            <ul class="project__stack">
+              <li>Automation</li><li>Ticketing</li><li>Ops</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project__media project__media--alt2">
+            <span class="project__tag">Productivity</span>
+          </div>
+          <div class="project__body">
+            <h3>Limina</h3>
+            <p>A helper that generates clean, consistent ticket titles — small on the surface, quietly delightful in daily use.</p>
+            <ul class="project__stack">
+              <li>NLP-lite</li><li>UX</li><li>Helper</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section contact" id="contact">
+    <div class="section__inner contact__inner reveal">
+      <span class="section__label">04 — Contact</span>
+      <h2 class="section__title">Let's build something.</h2>
+      <p class="contact__lead">
+        Got an idea, a question, or just want to say hi? My inbox is open.
+      </p>
+      <a href="mailto:sholaakanni25@gmail.com" class="btn btn--primary btn--lg">Say hello</a>
+      <div class="contact__socials">
+        <a href="https://github.com/Surelaarrgh" target="_blank" rel="noopener">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:sholaakanni25@gmail.com">Email</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Oluwashola Akanni. Built with care.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
