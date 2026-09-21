@@ -30,7 +30,7 @@ Then visit http://localhost:8000
 - **Hero** — intro with animated background and rotating tagline
 - **About** — bio with animated stat counters
 - **What I Do** — focus areas
-- **Projects** — Pipeline Parity, Pipeline Order, Limina
+- **Projects** — Pipeline Parity, Pipeline Order, Alarm-master
 - **Contact** — email + GitHub
 
 ## Credits
