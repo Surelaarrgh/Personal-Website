@@ -1,9 +1,9 @@
 # Personal Website
 
-Personal website of **Oluwashola Akanni** — software engineer & builder.
+Personal website of **Oluwashola Akanni**, software engineer & builder.
 
 A fast, modern, single-page site built with plain HTML, CSS, and JavaScript.
-No build step, no dependencies — just open it in a browser.
+No build step, no dependencies, just open it in a browser.
 
 ## Structure
 
@@ -27,11 +27,11 @@ Then visit http://localhost:8000
 
 ## Sections
 
-- **Hero** — intro with animated background and rotating tagline
-- **About** — bio with animated stat counters
-- **What I Do** — focus areas
-- **Projects** — Pipeline Parity, Pipeline Order, Alarm-master
-- **Contact** — email + GitHub
+- **Hero** – intro with animated background and rotating tagline
+- **About** – bio with animated stat counters
+- **What I Do** – focus areas
+- **Projects** – Pipeline Parity, Pipeline Order, Alarm-master
+- **Contact** – email + GitHub
 
 ## Credits
 

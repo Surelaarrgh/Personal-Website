@@ -1,5 +1,5 @@
 /* ============================================================
-   Oluwashola Akanni — Personal Site
+   Oluwashola Akanni – Personal Site
    Vanilla JS: progress bar, reveal, nav, rotator, counters
    ============================================================ */
 

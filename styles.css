@@ -1,5 +1,5 @@
 /* ============================================================
-   Oluwashola Akanni — Personal Site
+   Oluwashola Akanni – Personal Site
    Modern dark theme, vanilla CSS, no build step
    ============================================================ */
 
@@ -219,6 +219,41 @@ img { display: block; max-width: 100%; }
 .project__body p { color: var(--fg-muted); font-size: 0.95rem; flex: 1; }
 .project__stack { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .project__stack li {
+  font-size: 0.75rem; color: var(--fg-muted); padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border); border-radius: 999px;
+}
+
+/* ---------- Experience / Timeline ---------- */
+.timeline { position: relative; display: flex; flex-direction: column; gap: 1.5rem; }
+.timeline::before {
+  content: ""; position: absolute; left: 9px; top: 8px; bottom: 8px; width: 2px;
+  background: linear-gradient(180deg, var(--accent), transparent);
+}
+.tl-item { position: relative; display: flex; gap: 1.5rem; padding-left: 0; }
+.tl-item__marker {
+  flex: 0 0 auto; width: 20px; height: 20px; border-radius: 50%; margin-top: 6px;
+  background: var(--bg); border: 3px solid var(--accent); position: relative; z-index: 1;
+  box-shadow: 0 0 0 4px rgba(255,133,81,0.12);
+}
+.tl-item__content {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 1.6rem 1.8rem; flex: 1; transition: transform 0.35s var(--ease), border-color 0.35s;
+}
+.tl-item__content:hover { transform: translateX(4px); border-color: rgba(255,133,81,0.4); }
+.tl-item__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.9rem; margin-bottom: 0.7rem; }
+.tl-item__head h3 { font-size: 1.25rem; }
+.tl-item__meta { font-size: 0.85rem; color: var(--accent); font-weight: 600; }
+.tl-item__content p { color: var(--fg-muted); font-size: 0.97rem; }
+.tl-item__content p strong { color: var(--fg); font-weight: 600; }
+.tl-item__wins { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.tl-item__wins li {
+  position: relative; padding-left: 1.4rem; color: var(--fg-muted); font-size: 0.92rem;
+}
+.tl-item__wins li::before {
+  content: "▸"; position: absolute; left: 0; top: 0; color: var(--accent); font-size: 0.85rem;
+}
+.tl-item__tags { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.tl-item__tags li {
   font-size: 0.75rem; color: var(--fg-muted); padding: 0.3rem 0.7rem;
   border: 1px solid var(--border); border-radius: 999px;
 }
