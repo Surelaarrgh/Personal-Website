@@ -9,7 +9,7 @@
   --bg-card: #161a24;
   --fg: #e9edf5;
   --fg-muted: #9aa4b6;
-  --fg-dim: #6b7488;
+  --fg-dim: #7d8698; /* 5.25:1 on --bg, clears WCAG AA for normal text */
   --accent: #ff8551;
   --accent-2: #7c9dff;
   --accent-glow: rgba(255, 133, 81, 0.35);
@@ -21,7 +21,11 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* keep anchored headings clear of the fixed nav */
+  scroll-padding-top: 96px;
+}
 
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
@@ -35,6 +39,12 @@ body {
 h1, h2, h3, .nav__brand { font-family: "Sora", sans-serif; line-height: 1.15; }
 
 a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 
 img { display: block; max-width: 100%; }
 
@@ -283,10 +293,18 @@ img { display: block; max-width: 100%; }
   .nav__links {
     position: fixed; inset: 0 0 0 auto; width: min(75vw, 320px);
     background: var(--bg-elevated); flex-direction: column; justify-content: center;
-    gap: 2rem; padding: 2rem; transform: translateX(100%); transition: transform 0.4s var(--ease);
+    gap: 2rem; padding: 2rem; transform: translateX(100%);
+    /* visibility keeps the closed drawer out of the tab order and a11y tree;
+       delaying it lets the slide-out animation finish first */
+    visibility: hidden;
+    transition: transform 0.4s var(--ease), visibility 0s linear 0.4s;
     border-left: 1px solid var(--border);
   }
-  .nav__links.is-open { transform: translateX(0); }
+  .nav__links.is-open {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.4s var(--ease), visibility 0s linear 0s;
+  }
   .nav__links a { font-size: 1.2rem; }
   .nav__toggle { display: flex; z-index: 95; }
   .nav__toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -299,4 +317,5 @@ img { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
 }

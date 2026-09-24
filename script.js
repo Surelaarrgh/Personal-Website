@@ -6,6 +6,14 @@
 (function () {
   "use strict";
 
+  /* ---- Motion preference ---- */
+  var motionQuery = window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : null;
+  function prefersReducedMotion() {
+    return !!(motionQuery && motionQuery.matches);
+  }
+
   /* ---- Current year ---- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -67,10 +75,10 @@
 
   /* ---- Hero word rotator ---- */
   var rotator = document.getElementById("rotator");
-  if (rotator) {
+  if (rotator && !prefersReducedMotion()) {
     var words = ["automation", "developer tools", "clean pipelines", "delightful UX"];
     var idx = 0;
-    setInterval(function () {
+    var rotatorTimer = setInterval(function () {
       idx = (idx + 1) % words.length;
       rotator.style.opacity = "0";
       rotator.style.transition = "opacity 0.3s ease";
@@ -79,6 +87,16 @@
         rotator.style.opacity = "1";
       }, 300);
     }, 2600);
+
+    // stop rotating if the user turns reduced motion on mid-visit
+    if (motionQuery && motionQuery.addEventListener) {
+      motionQuery.addEventListener("change", function (e) {
+        if (e.matches) {
+          clearInterval(rotatorTimer);
+          rotator.style.opacity = "1";
+        }
+      });
+    }
   }
 
   /* ---- Animated stat counters ---- */
@@ -93,6 +111,10 @@
       counted = true;
       counters.forEach(function (el) {
         var target = parseInt(el.getAttribute("data-count"), 10) || 0;
+        if (prefersReducedMotion()) {
+          el.textContent = target;
+          return;
+        }
         var start = 0;
         var duration = 1400;
         var startTime = null;

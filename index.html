@@ -18,6 +18,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fallback: without JS the reveal animation never runs, so force content visible
+       and turn the mobile drawer back into a plain inline nav. -->
+  <noscript>
+    <style>
+      .reveal { opacity: 1; transform: none; }
+      @media (max-width: 820px) {
+        .nav { flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+        .nav__links {
+          position: static; inset: auto; width: auto; transform: none;
+          visibility: visible; flex-direction: row; flex-wrap: wrap;
+          justify-content: center; background: none; border: 0;
+          padding: 0; gap: 1rem;
+        }
+        .nav__links a { font-size: 0.95rem; }
+        .nav__toggle { display: none; }
+      }
+    </style>
+  </noscript>
 </head>
 <body>
   <!-- Progress bar -->
@@ -281,7 +300,7 @@
   </section>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Oluwashola Akanni. Built with care.</p>
+    <p>© <span id="year">2026</span> Oluwashola Akanni. Built with care.</p>
   </footer>
 
   <script src="script.js"></script>
